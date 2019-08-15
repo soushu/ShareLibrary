@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -22,6 +23,12 @@ public class ShareMenuActivity extends AppCompatActivity {
 
     protected String shareUrl;
     protected WebView webView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTitle("");
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -66,17 +73,17 @@ public class ShareMenuActivity extends AppCompatActivity {
      */
     private void shareAction(int div) {
 
-        String pakageName = getPakageName(div);
+        String packageName = getPakageName(div);
         String msg = getMsg(div);
 
         // Check installed App
-        if (!appInstalled(getApplicationContext(), pakageName)) {
+        if (!appInstalled(getApplicationContext(), packageName)) {
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
         } else {
             if (div == 1) {
                 shareActionLine();
             } else {
-                shareActionTwitterFacebook(pakageName);
+                shareActionTwitterFacebook(packageName);
             }
         }
     }
