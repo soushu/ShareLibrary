@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ShareMenuLibrary</string>
+
+    <string name="action_line">LINEで共有</string>
+    <string name="action_twitter">Twitterで共有</string>
+    <string name="action_facebook">Facebookで共有</string>
+    <string name="action_other">その他の方法で共有</string>
+    <string name="action_browser">ブラウザで開く</string>
+
+    <string name="colon_zenkaku">：</string>
+    <string name="menu_share_message">Androidアプリ</string>
+    <string name="google_play">https://play.google.com/store/apps/details?id=</string>
+
+    <string name="line_pakage_name">jp.naver.line.android</string>
+    <string name="twitter_pakage_name">com.twitter.android</string>
+    <string name="facebook_pakage_name">com.facebook.katana</string>
+
+    <string name="chk_line_message">LINEアプリのインストールが必要です</string>
+    <string name="chk_twitter_message">Twitterアプリのインストールが必要です</string>
+    <string name="chk_facebook_message">Facebookアプリのインストールが必要です</string>
+
+    <string name="scheme_line">line://msg/text</string>
+    <string name="scheme_twitter">line://msg/text</string>
+
+</resources>
