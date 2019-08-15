@@ -21,14 +21,21 @@ import java.util.List;
 
 public class ShareMenuActivity extends AppCompatActivity {
 
-    protected String shareUrl;
-    protected WebView webView;
-    protected Menu menu;
+    private String shareUrl;
+    private WebView webView;
+
+    protected void setShareUrl(String shareUrl) {
+        this.shareUrl = shareUrl;
+    }
+
+    protected void setWebView(WebView webView) {
+        this.webView = webView;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("");
+        setTitle(null);
     }
 
     @Override
@@ -59,13 +66,12 @@ public class ShareMenuActivity extends AppCompatActivity {
     @Override
     @SuppressLint("RestrictedApi")
     public boolean onCreateOptionsMenu(Menu menu) {
-        this.menu = menu;
-        getMenuInflater().inflate(R.menu.menu_mini, this.menu);
-        if (this.menu instanceof MenuBuilder) {
-            MenuBuilder m = (MenuBuilder) this.menu;
+//        this.menu = menu;
+        getMenuInflater().inflate(R.menu.menu_mini, menu);
+        if (menu instanceof MenuBuilder) {
+            MenuBuilder m = (MenuBuilder) menu;
             m.setOptionalIconsVisible(true);
         }
-
         return true;
     }
 
