@@ -23,6 +23,7 @@ public class ShareMenuActivity extends AppCompatActivity {
 
     private WebView _webView;
     private String _appName;
+    private String _color = "black"; // Default
 
     protected void setWebView(WebView webView) {
         this._webView = webView;
@@ -30,6 +31,10 @@ public class ShareMenuActivity extends AppCompatActivity {
 
     protected void setAppName(String appName) {
         this._appName = appName;
+    }
+
+    protected void setColor(String color) {
+        this._color = color;
     }
 
     @Override
@@ -66,6 +71,12 @@ public class ShareMenuActivity extends AppCompatActivity {
         if (menu instanceof MenuBuilder) {
             MenuBuilder m = (MenuBuilder) menu;
             m.setOptionalIconsVisible(true);
+        }
+        MenuItem item = menu.findItem(R.id.menu_tv);
+        if (this._color == "white") {
+            item.setIcon(R.drawable.ic_action_share_white);
+        } else {
+            item.setIcon(R.drawable.ic_action_share_black);
         }
         return true;
     }
