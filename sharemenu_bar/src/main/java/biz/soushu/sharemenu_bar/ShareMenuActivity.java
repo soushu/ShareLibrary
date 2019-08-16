@@ -26,15 +26,15 @@ public class ShareMenuActivity extends AppCompatActivity {
     private String _appName;
     private Menu _menu;
 
-    protected void set_shareUrl(String shareUrl) {
+    protected void setShareUrl(String shareUrl) {
         this._shareUrl = shareUrl;
     }
 
-    protected void set_webView(WebView webView) {
+    protected void setWebView(WebView webView) {
         this._webView = webView;
     }
 
-    protected void set_appName(String appName) {
+    protected void setAppName(String appName) {
         this._appName = appName;
     }
 
