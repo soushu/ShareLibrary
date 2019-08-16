@@ -21,13 +21,8 @@ import java.util.List;
 
 public class ShareMenuActivity extends AppCompatActivity {
 
-    private String _shareUrl;
     private WebView _webView;
     private String _appName;
-
-    protected void setShareUrl(String shareUrl) {
-        this._shareUrl = shareUrl;
-    }
 
     protected void setWebView(WebView webView) {
         this._webView = webView;
@@ -159,7 +154,7 @@ public class ShareMenuActivity extends AppCompatActivity {
     private String makeShareText() {
         // メッセージ
         List list = new ArrayList();
-        list.add(this._shareUrl);
+        list.add(_webView.getUrl());
         list.add(" ");
         if(this._appName != null && this._appName.trim() != "") {
             list.add(this._appName + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
