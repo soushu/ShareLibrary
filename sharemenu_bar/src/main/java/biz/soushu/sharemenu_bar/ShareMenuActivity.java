@@ -23,6 +23,7 @@ public class ShareMenuActivity extends AppCompatActivity {
 
     private String shareUrl;
     private WebView webView;
+    private String appName;
 
     protected void setShareUrl(String shareUrl) {
         this.shareUrl = shareUrl;
@@ -32,10 +33,13 @@ public class ShareMenuActivity extends AppCompatActivity {
         this.webView = webView;
     }
 
+    protected void setAppName(String appName) {
+        this.appName = appName;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(null);
     }
 
     @Override
@@ -158,7 +162,9 @@ public class ShareMenuActivity extends AppCompatActivity {
         List list = new ArrayList();
         list.add(this.shareUrl);
         list.add(" ");
-        list.add(getString(R.string.app_name) + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
+        if(this.appName != null || this.appName.trim() == "") {
+            list.add(this.appName + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
+        }
         list.add(getString(R.string.google_play) + getPackageName());
 
         return join(list, "\n");
@@ -189,12 +195,7 @@ public class ShareMenuActivity extends AppCompatActivity {
     }
 
     private void createShareText(Intent intent) {
-        List list = new ArrayList();
-        list.add(this.shareUrl);
-        list.add(" ");
-        list.add(getString(R.string.app_name) + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
-        list.add(getString(R.string.google_play) + getPackageName());
-        intent.putExtra(Intent.EXTRA_TEXT, join(list, "\n"));
+        intent.putExtra(Intent.EXTRA_TEXT, makeShareText());
     }
 
     public static String join(List<String> list, String delimiter) {

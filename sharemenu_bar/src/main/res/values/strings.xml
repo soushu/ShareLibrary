@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">ShareMenuLibrary</string>
-
     <string name="action_line">Share LINE</string>
     <string name="action_twitter">Share Twitter</string>
     <string name="action_facebook">Share Facebook</string>

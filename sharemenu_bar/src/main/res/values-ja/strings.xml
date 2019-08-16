@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">ShareMenuLibrary</string>
-
     <string name="action_line">LINEで共有</string>
     <string name="action_twitter">Twitterで共有</string>
     <string name="action_facebook">Facebookで共有</string>
