@@ -161,7 +161,7 @@ public class ShareMenuActivity extends AppCompatActivity {
         List list = new ArrayList();
         list.add(this._shareUrl);
         list.add(" ");
-        if(this._appName != null || this._appName.trim() != "") {
+        if(this._appName != null && this._appName.trim() != "") {
             list.add(this._appName + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
             list.add(getString(R.string.google_play) + getPackageName());
         }
