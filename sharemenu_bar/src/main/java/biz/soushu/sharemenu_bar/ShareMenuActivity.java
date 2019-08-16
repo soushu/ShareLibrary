@@ -21,20 +21,21 @@ import java.util.List;
 
 public class ShareMenuActivity extends AppCompatActivity {
 
-    private String shareUrl;
-    private WebView webView;
-    private String appName;
+    private String _shareUrl;
+    private WebView _webView;
+    private String _appName;
+    private Menu _menu;
 
-    protected void setShareUrl(String shareUrl) {
-        this.shareUrl = shareUrl;
+    protected void set_shareUrl(String shareUrl) {
+        this._shareUrl = shareUrl;
     }
 
-    protected void setWebView(WebView webView) {
-        this.webView = webView;
+    protected void set_webView(WebView webView) {
+        this._webView = webView;
     }
 
-    protected void setAppName(String appName) {
-        this.appName = appName;
+    protected void set_appName(String appName) {
+        this._appName = appName;
     }
 
     @Override
@@ -70,10 +71,10 @@ public class ShareMenuActivity extends AppCompatActivity {
     @Override
     @SuppressLint("RestrictedApi")
     public boolean onCreateOptionsMenu(Menu menu) {
-//        this.menu = menu;
-        getMenuInflater().inflate(R.menu.menu_mini, menu);
-        if (menu instanceof MenuBuilder) {
-            MenuBuilder m = (MenuBuilder) menu;
+        this._menu = menu;
+        getMenuInflater().inflate(R.menu.menu_mini, this._menu);
+        if (this._menu instanceof MenuBuilder) {
+            MenuBuilder m = (MenuBuilder) this._menu;
             m.setOptionalIconsVisible(true);
         }
         return true;
@@ -152,7 +153,7 @@ public class ShareMenuActivity extends AppCompatActivity {
     }
 
     private void shareActionBrowser() {
-        String currentUrl = webView.getUrl();
+        String currentUrl = _webView.getUrl();
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(currentUrl));
         startActivity(intent);
     }
@@ -160,10 +161,10 @@ public class ShareMenuActivity extends AppCompatActivity {
     private String makeShareText() {
         // メッセージ
         List list = new ArrayList();
-        list.add(this.shareUrl);
+        list.add(this._shareUrl);
         list.add(" ");
-        if(this.appName != null || this.appName.trim() == "") {
-            list.add(this.appName + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
+        if(this._appName != null || this._appName.trim() == "") {
+            list.add(this._appName + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
             list.add(getString(R.string.google_play) + getPackageName());
         }
 
