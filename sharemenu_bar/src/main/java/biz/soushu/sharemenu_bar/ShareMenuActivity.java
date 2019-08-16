@@ -51,9 +51,6 @@ public class ShareMenuActivity extends AppCompatActivity {
             this.shareActionOther();
         } else if (i == R.id.action_browser) {
             this.shareActionBrowser();
-        } else if (i == R.id.home) {
-            finish();
-            return true;
         }
 
         return super.onOptionsItemSelected(item);
