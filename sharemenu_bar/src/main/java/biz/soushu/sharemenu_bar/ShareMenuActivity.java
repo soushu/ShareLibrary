@@ -164,8 +164,8 @@ public class ShareMenuActivity extends AppCompatActivity {
         list.add(" ");
         if(this.appName != null || this.appName.trim() == "") {
             list.add(this.appName + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
+            list.add(getString(R.string.google_play) + getPackageName());
         }
-        list.add(getString(R.string.google_play) + getPackageName());
 
         return join(list, "\n");
     }
