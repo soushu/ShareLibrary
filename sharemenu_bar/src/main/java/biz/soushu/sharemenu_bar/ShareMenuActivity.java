@@ -24,7 +24,6 @@ public class ShareMenuActivity extends AppCompatActivity {
     private String _shareUrl;
     private WebView _webView;
     private String _appName;
-    private Menu _menu;
 
     protected void setShareUrl(String shareUrl) {
         this._shareUrl = shareUrl;
@@ -71,10 +70,9 @@ public class ShareMenuActivity extends AppCompatActivity {
     @Override
     @SuppressLint("RestrictedApi")
     public boolean onCreateOptionsMenu(Menu menu) {
-        this._menu = menu;
-        getMenuInflater().inflate(R.menu.menu_mini, this._menu);
-        if (this._menu instanceof MenuBuilder) {
-            MenuBuilder m = (MenuBuilder) this._menu;
+        getMenuInflater().inflate(R.menu.menu_mini, menu);
+        if (menu instanceof MenuBuilder) {
+            MenuBuilder m = (MenuBuilder) menu;
             m.setOptionalIconsVisible(true);
         }
         return true;
@@ -163,7 +161,7 @@ public class ShareMenuActivity extends AppCompatActivity {
         List list = new ArrayList();
         list.add(this._shareUrl);
         list.add(" ");
-        if(this._appName != null || this._appName.trim() == "") {
+        if(this._appName != null || this._appName.trim() != "") {
             list.add(this._appName + getString(R.string.colon_zenkaku) + getString(R.string.menu_share_message));
             list.add(getString(R.string.google_play) + getPackageName());
         }
