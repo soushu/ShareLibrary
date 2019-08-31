@@ -25,7 +25,7 @@ androidX
 - Add the dependency.
 ```java
 	dependencies {
-		implementation 'com.github.soushu:ShareLibrary:0.2.1'
+		implementation 'com.github.soushu:ShareLibrary:0.2.2'
 	}
 ```
 
